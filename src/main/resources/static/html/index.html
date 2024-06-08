@@ -1,0 +1,78 @@
+<!--
+    'TheFockYo' custom template engine.
+    Index page.
+-->
+<!-- ask to use 'main' template -->
+${template(template/main.html)}
+<!--
+    Header section, should be displayed on top of page
+-->
+${section(header)
+   <h4>${msg(gb.text.title)}</h4>
+}
+<!--
+
+    The 'main' section.
+    Contains main page content.
+-->
+${section(main)
+<p class="lead">
+    ${msg(gb.text.message)}
+</p>
+<!-- form that adds new GB record -->
+<form id="newRecordForm" >
+    <div class="row">
+        <div class="col" id="errorAlert" style="display:none;">
+            <span style="color:red;">${msg(gb.text.newmessage.errorAdd)}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="6 col">
+            <label for="authorInput"> ${msg(gb.text.newmessage.author)}</label>
+            <input type="email" class="card w-100" id="authorInput" placeholder="${msg(gb.text.newmessage.author.placeholder)}"/>
+        </div>
+        <div class="6 col">
+            <label for="titleInput">${msg(gb.text.newmessage.title)}</label>
+            <input type="text" class="card w-100" id="titleInput" placeholder="${msg(gb.text.newmessage.title.placeholder)}"/>
+        </div>
+    </div>
+    <div class="row">
+        <label for="messageInput">${msg(gb.text.newmessage.message)}</label>
+        <textarea class="card w-100" id="messageInput" rows="3" placeholder="${msg(gb.text.newmessage.message.placeholder)}"></textarea>
+    </div>
+    <div class="row">
+        <button id="submitBtn" type="submit" class="btn primary">${msg(gb.text.newmessage.btn.submit)}</button>
+    </div>
+</form>
+<!-- the root element, where GB records will be attached -->
+<div id="messages" class="row"></div>
+}
+<!--  Here we put scripts and hidden html.
+      Will be placed below <main> div
+-->
+${section(scripts)
+<!-- this is hidden block, that stores GB record template -->
+<div id="message-template" class="card row" style="display:none;">
+        <h4>
+            <span id="message-title">[title]</span>
+        </h4>
+        <p>
+            ${msg(gb.text.from)}
+            <span id="message-author">[author]</span>
+            ${msg(gb.text.at)}
+            <span id="message-date">[date]</span>
+        </p>
+        <p id="message-text">[text]</p>
+
+        <div style="float:right;">
+            ${if(gb.isAuthenticated)
+            <a href="#" id="deleteBtn"
+               class="btn primary"
+               confirm="${msg(gb.text.btn.delete.confirm)}">
+                ${msg(gb.text.btn.delete)}
+            </a>
+            }
+        </div>
+</div>
+<script src="/static/js/gb.js"></script>
+}

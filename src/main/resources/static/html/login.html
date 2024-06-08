@@ -1,0 +1,42 @@
+<!--
+  'TheFockYo' custom template engine.
+   Login page.
+ -->
+<!-- instruct to use main template -->
+${template(template/main.html)}
+<!-- the 'header' section -->
+${section(header)
+    <h4>${msg(gb.text.login.title)}</h4>
+}
+<!-- main section, main page content -->
+${section(main)
+<div class="row">
+    <div class="col" id="errorAlert" style="display:none;">
+        <span style="color:red;">${msg(gb.text.login.accessDenied)}</span>
+    </div>
+</div>
+<form id="loginForm">
+    <div class="row">
+        <div class="6 col">
+            <label for="usernameInput">${msg(gb.text.login.username)}</label>
+            <input type="text" class="card w-100" id="usernameInput" placeholder="${msg(gb.text.login.username)}" autofocus="autofocus">
+        </div>
+        <div class="6 col">
+            <label for="passwordInput">${msg(gb.text.login.username)}</label>
+            <input type="password" class="card w-100" id="passwordInput" placeholder="${msg(gb.text.login.password)}">
+        </div>
+    </div>
+    <div class="row">
+        <p>${msg(gb.text.login.sampleCreds)}</p>
+    </div>
+    <div class="row">
+        <div class="6 col">
+            <button id="loginBtn" type="submit" class="btn btn-primary">${msg(gb.text.login.btn.signin)}</button>
+        </div>
+    </div>
+</form>
+}
+<!-- footer section, for scripts -->
+${section(scripts)
+    <script src="/static/js/login.js"></script>
+}

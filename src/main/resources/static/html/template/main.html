@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Alex Chernyshev">
+    <meta name="generator" content="hands">
+    <!-- substitute page title from resources -->
+    <title>${msg(gb.text.title)}</title>
+    <!-- link to CSS style -->
+    <link href="/static/css/lit.css" rel="stylesheet"/>
+    <!-- additional styling to have 'footer' on the bottom -->
+    <style>
+        #content{min-height: calc(100vh - 200px);}
+    </style>
+</head>
+<body class="c">
+<div class="row" >
+    <b class="col">
+        <!-- inject section 'header' below -->
+        ${inject(header)}
+    </b>
+    <div class="col"  style="float:right;">
+        <!-- language toggle -->
+        <a id="selectEn" href="#">English</a> | <a id="selectRu" href="#">Русский</a>
+        <!-- if current page url equals /login.html - add 'back' button -->
+        ${if(url eq /login.html)
+            <a class="btn"
+                href="/">${msg(gb.text.login.btn.back)}</a>
+        }
+        <!-- if user is not logged-in - show the login button  -->
+        ${if(!gb.isAuthenticated)
+            <a class="btn" href="/login.html">${msg(gb.text.login)}</a>
+        }
+        <!-- this will be rendered if user is logged-in -->
+        ${if(gb.isAuthenticated)
+            <span style="padding-right:0.5em;">${msg(user.name)}</span>
+            <form style="display: inline;" action="/api/logout" method="post">
+                <input class="btn primary" type="submit" value="${msg(gb.text.logout)}"/>
+            </form>
+        }
+    </div>
+</div>
+    <div id="content" class="row">
+        <!-- inject main section below -->
+        ${inject(main)}
+    </div>
+    <div class="row">
+        <p>
+            Created by <a href="mailto:alex3.145@gmail.com">Alex Chernyshev</a> as part of my 'Serious Experiments' Project.
+        </p>
+    </div>
+<!-- here will be additional scripts, injected below main content -->
+${inject(scripts)}
+</body>
+</html>
