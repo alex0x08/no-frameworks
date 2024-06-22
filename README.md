@@ -15,4 +15,6 @@ All of these completely without any frameworks or libraries.
 * ~70kb final executable JAR
 
 
-You can see it in action here: https://www.youtube.com/watch?v=13R17_-_w5w
+[See it](https://www.youtube.com/watch?v=13R17_-_w5w) in action on Youtube. 
+
+Written for my [article](https://blog.0x08.ru/no-frameworks) (russian).
