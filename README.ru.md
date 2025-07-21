@@ -1,62 +1,60 @@
-[![ru](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/alex0x08/teleporta/blob/main/README.ru.md)
+[![en](https://img.shields.io/badge/lang-en-grey.svg)](https://github.com/alex0x08/teleporta/blob/main/README.md)
 
 # No frameworks
 
-This is my small guestbook application written in plain Java, without any frameworks and libraries. At all.
-There is no Spring/Hibernate, no JSP/JSF, no Servlets - nothing that you've seen before.
+Это проект приложения 'гостевой книги', реализованный на чистой Java, без каких-либо внешних зависимостей, фреймворков или библиотек. Совсем.
+Тут нет ни Spring/Hibernate ни JSP/JSF ни сервлетов - ничего что вы уже видели в других проектах.
 
-Features:
-* REST & JSON
-* Users and authentication
-* Data persistence
-* Simple EL parser
-* Template engine.
+Фичи:
+* Реализация REST & JSON
+* Пользователи и авторизация
+* Хранилище данных
+* Простейший парсер выражений (аналог EL)
+* Простейший движок шаблонизатора страниц.
 
-All of these completely *without* any frameworks or libraries.
+Все это *абсолютно без* каких-либо фреймворков или библиотек.
 
-* ~ 800 lines of code,
-* ~ 1200 with comments
-* ~70kb executable JAR
+* ~ 800 строк кода,
+* ~ 1200 с комментариями
+* ~ 70kb итоговый выполняемый JAR
 
-# Articles
+# Статьи
 
-This project has been created for my [article](https://blog.0x08.ru/no-frameworks) (russian), which has been [published on Habr](https://habr.com/ru/articles/841574/).
+Проект был создан для моей [статьи](https://blog.0x08.ru/no-frameworks), которая позже была [опубликована на Хабре](https://habr.com/ru/articles/841574/).
 
+# В действии
 
-# In action
+Ниже несколько скриншотов работающего приложения с демонстрацией функционала.
+Также можно [посмотреть в действии](https://www.youtube.com/watch?v=13R17_-_w5w) на Youtube.
 
-Below some screenshots of working application.
-[See it](https://www.youtube.com/watch?v=13R17_-_w5w) in action on Youtube. 
-
-All on desktop:
+Все вместе:
 ![In short](https://github.com/alex0x08/no-frameworks/blob/main/images/no-frameworks.jpg?raw=true)
 
-Main screen with English locale:
+Основной экран с английской локалью:
 ![In action](https://github.com/alex0x08/no-frameworks/blob/main/images/no-frameworks-main-en.png?raw=true)
 
-Main screen with Russian locale:
+Основной экран с русской локалью:
 ![In action](https://github.com/alex0x08/no-frameworks/blob/main/images/no-frameworks-main-ru.png?raw=true)
 
-Login screen:
+Авторизация:
 ![Auth](https://github.com/alex0x08/no-frameworks/blob/main/images/no-frameworks-auth.png?raw=true)
 
-Logged In:
+После авторизации:
 ![Authenticated](https://github.com/alex0x08/no-frameworks/blob/main/images/no-frameworks-authenticated.png?raw=true)
 
-# How to build
+# Сборка
 
-There is a bash script in root folder, which can be used to build project without any external build tools:
+В корне проекта находится шелл-скрипт на Bash, которым можно собрать приложение без каких-либо внешних инструментов сборки:
 
 ```
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 ./build.sh
 ```
-Another option - build with Apache Maven:
+В качестве альтернативного способа можно использовать Apache Maven:
 
 ```
 mvn clean package
 ```
 
-
-The final executable `jar`, could be found in the `target` folder.
+Итоговое выполняемое приложение будет находиться в каталоге 'target'.
