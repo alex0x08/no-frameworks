@@ -1,4 +1,4 @@
-[![en](https://img.shields.io/badge/lang-en-grey.svg)](https://github.com/alex0x08/teleporta/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-grey.svg)](https://github.com/alex0x08/no-frameworks/blob/main/README.md)
 
 # No frameworks
 
